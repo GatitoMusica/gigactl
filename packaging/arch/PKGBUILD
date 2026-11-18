@@ -1,0 +1,33 @@
+pkgname=gigactld
+pkgver=1.0.3
+pkgrel=1
+pkgdesc='System daemon for GigaControl fan, keyboard and CPU controls'
+arch=('any')
+url='https://github.com/smairio/gigactl'
+license=('MIT')
+depends=('dbus' 'polkit' 'python>=3.10' 'python-gobject' 'systemd')
+makedepends=('git')
+install=gigactld.install
+source=('git+https://github.com/smairio/gigactl.git#commit=8795f171dd78e884f298f862ff4e666687a9dcb7')
+sha256sums=('SKIP')
+
+package() {
+    cd "$srcdir/gigactl"
+
+    install -d "$pkgdir/usr/lib/gigactl/gigactld"
+    install -m644 daemon/gigactld/*.py "$pkgdir/usr/lib/gigactl/gigactld/"
+    install -Dm755 debian/bin/launcher "$pkgdir/usr/lib/gigactl/launcher"
+    install -d "$pkgdir/usr/bin"
+    ln -s /usr/lib/gigactl/launcher "$pkgdir/usr/bin/gigactld"
+
+    install -Dm644 daemon/data/gigactl.service \
+        "$pkgdir/usr/lib/systemd/system/gigactl.service"
+    install -Dm644 daemon/data/io.github.smairio.gigactl.conf \
+        "$pkgdir/usr/share/dbus-1/system.d/io.github.smairio.gigactl.conf"
+    install -Dm644 daemon/data/io.github.smairio.gigactl.policy \
+        "$pkgdir/usr/share/polkit-1/actions/io.github.smairio.gigactl.policy"
+    install -Dm644 debian/extra/modprobe.d/gigactl.conf \
+        "$pkgdir/usr/lib/modprobe.d/gigactl.conf"
+    install -Dm644 man/gigactld.8 "$pkgdir/usr/share/man/man8/gigactld.8"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

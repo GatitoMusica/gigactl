@@ -1,0 +1,39 @@
+check_hardware() {
+    local vendor model dmi
+    dmi=/sys/class/dmi/id
+
+    if [[ ${GIGACTL_FORCE_INSTALL:-0} == 1 ]]; then
+        echo 'gigactld: GIGACTL_FORCE_INSTALL=1; skipping the model guard.' >&2
+        return 0
+    fi
+
+    vendor=$(cat "$dmi/sys_vendor" 2>/dev/null || true)
+    model=$(cat "$dmi/product_name" 2>/dev/null || true)
+    case "$vendor" in
+        GIGABYTE*|Gigabyte*) ;;
+        *)
+            echo "gigactld: refusing installation on '$vendor $model'; supported systems are Gigabyte G5/G6/G7." >&2
+            return 1
+            ;;
+    esac
+    case "$model" in
+        'G6 KF'|G5*|G6*|G7*) ;;
+        *)
+            echo "gigactld: refusing installation on '$vendor $model'; supported systems are Gigabyte G5/G6/G7." >&2
+            return 1
+            ;;
+    esac
+}
+
+pre_install() {
+    check_hardware
+}
+
+post_install() {
+    cat <<'EOF'
+gigactld is installed but was not started or enabled.
+After confirming this is a supported Gigabyte G5/G6/G7, start it with:
+  systemctl enable --now gigactl.service
+Starting the daemon grants it access to the laptop Embedded Controller.
+EOF
+}
