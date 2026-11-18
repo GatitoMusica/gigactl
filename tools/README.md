@@ -7,7 +7,7 @@ They talk to the EC: the small controller inside the laptop that runs the fans
 and the keyboard light. Run them from a copy of this repository:
 
 ```bash
-git clone https://github.com/smairio/gigactl
+git clone https://github.com/GatitoMusica/gigactl
 cd gigactl
 ```
 

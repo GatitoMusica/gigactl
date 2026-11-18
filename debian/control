@@ -9,7 +9,7 @@ Build-Depends:
  librsvg2-bin,
  desktop-file-utils,
 Standards-Version: 4.6.2
-Homepage: https://github.com/smairio/gigactl
+Homepage: https://github.com/GatitoMusica/gigactl
 Rules-Requires-Root: no
 
 Package: gigactl

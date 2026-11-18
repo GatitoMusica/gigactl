@@ -46,7 +46,7 @@ jobs:
           mkdir -p "$TOPDIR"/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
           COMMIT=$(sed -n 's/^%global commit //p' packaging/rpm/gigactld.spec)
           curl --fail --location --retry 3 \
-            "https://github.com/smairio/gigactl/archive/${COMMIT}.tar.gz" \
+            "https://github.com/GatitoMusica/gigactl/archive/${COMMIT}.tar.gz" \
             --output "$TOPDIR/SOURCES/${COMMIT}.tar.gz"
           rpmbuild -ba --define "_topdir $TOPDIR" packaging/rpm/gigactld.spec
           mkdir -p dist
@@ -91,7 +91,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: dist
-      - name: Attach native packages to the existing upstream release
+      - name: Attach native packages to the existing daemon release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ needs.prepare.outputs.tag }}

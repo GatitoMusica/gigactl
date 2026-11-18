@@ -1,6 +1,6 @@
 [Unit]
 Description=GigaControl daemon (fan & keyboard control for Gigabyte G5/G6)
-Documentation=https://github.com/smairio/gigactl
+Documentation=https://github.com/GatitoMusica/gigactl
 After=multi-user.target
 
 [Service]

@@ -3,12 +3,12 @@ pkgver=1.0.3
 pkgrel=1
 pkgdesc='System daemon for GigaControl fan, keyboard and CPU controls'
 arch=('any')
-url='https://github.com/smairio/gigactl'
+url='https://github.com/GatitoMusica/gigactl'
 license=('MIT')
 depends=('dbus' 'polkit' 'python>=3.10' 'python-gobject' 'systemd')
 makedepends=('git')
 install=gigactld.install
-source=('git+https://github.com/smairio/gigactl.git#commit=8795f171dd78e884f298f862ff4e666687a9dcb7')
+source=('git+https://github.com/GatitoMusica/gigactl.git#commit=8795f171dd78e884f298f862ff4e666687a9dcb7')
 sha256sums=('SKIP')
 
 package() {

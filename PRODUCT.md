@@ -47,7 +47,7 @@ Constraints:
 
 ## Brand Commitments
 
-- Repo/package name: **gigactl** (github.com/smairio/gigactl). Display name, app-id, and icon are **explicitly undecided** (map ticket #10).
+- Repo/package name: **gigactl** ([GatitoMusica/gigactl](https://github.com/GatitoMusica/gigactl)), forked from [smairio/gigactl](https://github.com/smairio/gigactl). Display name, app-id, and icon are **explicitly undecided** (map ticket #10).
 - Voice: plain, short, simple English readable by non-native speakers (confirmed). No jargon in primary flows; technical terms allowed in advanced/curve views.
 
 ## Evidence on Hand

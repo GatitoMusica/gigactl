@@ -1,10 +1,10 @@
 # Native package recipes
 
-The existing Debian package remains the upstream's full desktop package. The
+The Debian package in this fork remains the full desktop package. The
 Arch `PKGBUILD` and Fedora RPM spec in this directory package only `gigactld`,
 which is the system service required by GigaControl Plasma.
 
-Both recipes pin the source to upstream commit
+Both recipes pin the source to release commit
 `8795f171dd78e884f298f862ff4e666687a9dcb7` (daemon version 1.0.3). Update the
 pin and package version together when preparing a new daemon release.
 
@@ -20,7 +20,7 @@ Run these build commands from the repository root on the target distribution:
 
     COMMIT=$(sed -n 's/^%global commit //p' packaging/rpm/gigactld.spec)
     mkdir -p "$HOME"/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-    curl --fail --location "https://github.com/smairio/gigactl/archive/${COMMIT}.tar.gz" \
+    curl --fail --location "https://github.com/GatitoMusica/gigactl/archive/${COMMIT}.tar.gz" \
       -o "$HOME/rpmbuild/SOURCES/${COMMIT}.tar.gz"
     rpmbuild -ba --define "_topdir $HOME/rpmbuild" packaging/rpm/gigactld.spec
 
@@ -29,7 +29,7 @@ administrator can enable it explicitly. The package's `ExecStopPost` failsafe
 continues to return fans to firmware when a running service is stopped or
 removed.
 
-After the Debian release workflow publishes a `v1.0.3`-style tag, the
+After this repository's Debian release workflow publishes a `v1.0.3`-style tag, the
 `release-native-packages` workflow builds the RPM and Arch package and attaches
 them to that same GitHub release. It does not start the service on the build
 runner.

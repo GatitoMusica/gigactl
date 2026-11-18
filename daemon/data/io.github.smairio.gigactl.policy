@@ -4,7 +4,7 @@
  "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
 <policyconfig>
   <vendor>GigaControl</vendor>
-  <vendor_url>https://github.com/smairio/gigactl</vendor_url>
+  <vendor_url>https://github.com/GatitoMusica/gigactl</vendor_url>
 
   <action id="io.github.smairio.gigactl.control-fans">
     <description>Control laptop fan speed</description>

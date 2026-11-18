@@ -5,8 +5,8 @@ Version:        1.0.3
 Release:        1%{?dist}
 Summary:        System daemon for GigaControl laptop controls
 License:        MIT
-URL:            https://github.com/smairio/gigactl
-Source0:        https://github.com/smairio/gigactl/archive/%{commit}.tar.gz
+URL:            https://github.com/GatitoMusica/gigactl
+Source0:        https://github.com/GatitoMusica/gigactl/archive/%{commit}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  systemd-rpm-macros

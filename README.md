@@ -82,7 +82,7 @@ add the entry first, then `git tag v1.0.0 && git push origin v1.0.0`.
 ### From a source checkout (CLI only)
 
 ```bash
-git clone https://github.com/smairio/gigactl
+git clone https://github.com/GatitoMusica/gigactl
 cd gigactl
 sudo ./install.sh
 ```
