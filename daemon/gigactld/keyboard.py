@@ -59,7 +59,7 @@ class KeyboardState:
     enabled: bool = True
     r: int = 0
     g: int = 0
-    b: int = 255
+    b: int = 200
     brightness_pct: int = 100
 
     def to_dict(self) -> dict:
@@ -74,7 +74,7 @@ class KeyboardState:
             enabled=bool(d.get("enabled", True)),
             r=int(d.get("r", 0)),
             g=int(d.get("g", 0)),
-            b=int(d.get("b", 255)),
+            b=int(d.get("b", 200)),
             brightness_pct=max(0, min(100, int(d.get("brightness", 100)))),
         )
 

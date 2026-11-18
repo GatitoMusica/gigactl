@@ -86,7 +86,7 @@ def test_keyboard_state_dict_roundtrip():
 def test_keyboard_state_from_dict_fills_defaults():
     s = kb.KeyboardState.from_dict({})  # nothing saved
     assert s == kb.KeyboardState()      # firmware default: enabled blue, full
-    assert (s.b, s.brightness_pct, s.enabled) == (255, 100, True)
+    assert (s.b, s.brightness_pct, s.enabled) == (200, 100, True)
 
 
 def test_keyboard_state_from_dict_clamps_brightness():

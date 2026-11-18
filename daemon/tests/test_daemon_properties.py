@@ -34,7 +34,7 @@ def test_keyboard_state_property_falls_back_to_firmware_default(make_daemon):
     d = make_daemon()  # nothing set yet (lazy None)
     assert d.keyboard is None
     # honest fallback: the firmware default the EC itself boots with
-    assert _get(d, "KeyboardState").unpack() == (True, 0, 0, 255, 100)
+    assert _get(d, "KeyboardState").unpack() == (True, 0, 0, 200, 100)
 
 
 def test_telemetry_property_reports_the_same_reading_as_the_signal(make_daemon):

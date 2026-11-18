@@ -1,3 +1,12 @@
+gigactl (1.0.3) noble; urgency=medium
+
+  * Add the Turbo Boost D-Bus controls and live state required by the Plasma
+    client, including changes made by other CPU policy tools.
+  * Use the factory blue value when no keyboard color has been saved.
+  * Add Fedora RPM and Arch packages for the standalone system daemon.
+
+ -- khalil Smairi <smairio98@gmail.com>  Wed, 18 Nov 2026 03:30:00 +0100
+
 gigactl (1.0.2) noble; urgency=medium
 
   * The app now starts on a machine that has never run a cairo-drawing GTK

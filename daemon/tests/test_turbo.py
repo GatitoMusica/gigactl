@@ -91,9 +91,8 @@ def _announced(d, prop):
 
 
 def test_a_change_made_elsewhere_reaches_clients(make_daemon, tmp_path):
-    """power-profiles-daemon writes the same knob — Power Saver turns turbo
-    off. Clients read a cached copy of the property, so unless the daemon
-    announces the change the switch in the window shows the old state."""
+    """A system policy change reaches clients, which read a cached property.
+    Unless the daemon announces it, the switch in the window shows old state."""
     d = make_daemon()
     d.turbo = _knob(tmp_path, "0")
     d._tick()

@@ -5,10 +5,10 @@ trades burst speed for less heat and fan noise, which is why it sits next to the
 fan controls. Every Gigabyte G5/G6 in scope is Intel; on a machine without the
 intel_pstate driver the knob is simply absent and the switch is not offered.
 
-The knob has other writers: power-profiles-daemon turns turbo off in Power
-Saver, and tuned/TLP can do the same. So the daemon reports the *live* value,
-announces changes it did not make, and re-applies a choice only when the user
-made one through it (at start, and when they toggle) — never on a timer.
+Other system policy tools can affect CPU performance settings. The daemon
+reports the *live* value, announces changes it did not make, and re-applies a
+choice only when the user made one through it (at start, and when they toggle)
+— never on a timer.
 """
 from __future__ import annotations
 

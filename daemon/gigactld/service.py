@@ -547,10 +547,10 @@ class Daemon:
         return None if reached else _FAILSAFE_LANDED
 
     def _sync_turbo(self) -> None:
-        """Announce the live turbo state. The knob has other writers —
-        power-profiles-daemon turns turbo off in Power Saver — and clients
-        read a cached copy of the property, so without this the switch in the
-        window would keep showing whatever it saw last."""
+        """Announce the live turbo state. Other system policy tools may affect
+        CPU settings, and clients read a cached copy of the property, so
+        without this the switch in the window would keep showing whatever it
+        saw last."""
         current = self.turbo.state()
         if current == self._last_turbo:
             return  # unchanged: re-announcing would wake every client for nothing
