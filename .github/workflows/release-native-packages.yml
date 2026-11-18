@@ -97,4 +97,4 @@ jobs:
           TAG: ${{ needs.prepare.outputs.tag }}
         run: |
           gh release upload "$TAG" dist/gigactld-rpm/*.rpm \
-            dist/gigactld-arch/*.pkg.tar.zst --clobber
+            dist/gigactld-arch/*.pkg.tar.zst --clobber --repo "$GITHUB_REPOSITORY"
